@@ -63,7 +63,8 @@ public class parser
 			}
 						
 		
-			System.out.println("case 0x" + String.format("%05X",Integer.parseInt(sony20binary,2)) + ":      mySerial.println(\"" + rs232Command + "\");       break ;  // " + functionName);
+			//System.out.println("case 0x" + String.format("%05X",Integer.parseInt(sony20binary,2)) + ":      mySerial.println(\"" + rs232Command + "\");      lastCommand=\"" + rs232Command + "\";      break ;  // " + functionName);
+			System.out.println("case 0x" + String.format("%05X",Integer.parseInt(sony20binary,2)) + ":      lastCommand=\"" + rs232Command + "\";     mySerial.println(lastCommand);     break ;  // " + functionName);
 			System.out.println("");
 
 			//We empty sony20binary for the next iteration
