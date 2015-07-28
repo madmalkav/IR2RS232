@@ -17,9 +17,7 @@ String lastCommand = String("");
 //
 void  setup ( )
 {
-  //Serial.begin(9600);   // Status message will be sent to PC at 9600 baud
   mySerial.begin(9600); // RS232 output
-  //mySerial.println("Inicializando...");
   irrecv.enableIRIn();  // Start the receiver
   irrecv.blink13(true);
 }

@@ -32,6 +32,10 @@ receive comments and ideas, please use this forum thread for that:
 
 http://www.hifi-remote.com/forums/viewtopic.php?t=16224
 
+## Version 1.02
+
+Added correct delay for key repeat
+
 ## Version 1.01
 
 Changes to suport repeat codes -untested-.
