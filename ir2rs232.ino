@@ -47,6 +47,7 @@ void  loop ( )
 
     if (irrecv.decode(&results)) {  // Grab an IR code
       translate(&results);
+      delay(45);                    // to avoid too fast repeats
       irrecv.resume();              // Prepare for the next value
     }
 }
