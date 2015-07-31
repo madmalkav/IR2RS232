@@ -1,12 +1,18 @@
-#include <SoftwareSerial.h>
 #include <IRremote.h>
+#include <IRremoteInt.h>
+#include <SoftwareSerial.h>
+
+
 
 //------------------------------------------------------------------------------
 // Tell IRremote which Arduino pin is connected to the IR Receiver (TSOP4838)
 //
-int recvPin = 6;
-IRrecv irrecv(recvPin);
-SoftwareSerial mySerial(10, 11); // RX, TX
+int recvPin = 3;
+int blinkPin = 4;
+IRrecv irrecv(recvPin, blinkPin);
+SoftwareSerial mySerial(11, 10); // RX, TX
+
+
 
 //------------------------------------------------------------------------------
 // We use this string for repeat commands
@@ -31,7 +37,7 @@ void  translate (decode_results *results)
     // INSERT YOUR DATA.TXT FROM HERE
 
     // TO HERE
-    case 0xFFFFFFFF:      mySerial.println(lastCommand);      break;
+    case 0xFFFFFFFF:      mySerial.println(lastCommand);     delay(45);      break;
   }
 }
 
@@ -42,11 +48,9 @@ void  translate (decode_results *results)
 void  loop ( )
 {
     decode_results  results;        // Somewhere to store the results
-
     if (irrecv.decode(&results)) {  // Grab an IR code
-      translate(&results);
-      delay(45);                    // to avoid too fast repeats
-      irrecv.resume();              // Prepare for the next value
+    translate(&results);
+    irrecv.resume();              // Prepare for the next value
     }
 }
 
